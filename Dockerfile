@@ -6,3 +6,6 @@ RUN go env -w GO111MODULE=on \
 
 FROM tailscale/tailscale:latest
 COPY --from=builder /go/bin/derper /usr/local/bin/
+
+COPY entrypoint.sh /usr/local/bin/
+ENTRYPOINT entrypoint.sh

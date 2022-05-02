@@ -1,0 +1,13 @@
+services:
+  tailscale-derper:
+    image: doitian/tailscale-derper
+    build: .
+
+    network_mode: host
+    deploy:
+      restart_policy:
+        condition: unless-stopped
+    privileged: true
+    volumes:
+      - /var/lib:/var/lib
+      - /dev/net/tun:/dev/net/tun
